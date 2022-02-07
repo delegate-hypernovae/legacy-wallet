@@ -1,4 +1,4 @@
-# ARK Desktop Wallet
+# Solar Desktop Wallet
 
 ![Ark Desktop Wallet](./banner.png)
 
