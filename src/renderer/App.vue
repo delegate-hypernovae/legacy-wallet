@@ -31,7 +31,7 @@
       />
       <section
         :style="background ? `backgroundImage: url('${assets_loadImage(background)}')` : ''"
-        class="App__main flex flex-col items-center px-4 pb-4 lg:pt-4 w-screen h-screen-adjusted overflow-hidden"
+        class="App__main flex flex-col items-center px-4 pb-4 lg:pt-4 w-screen h-screen-adjusted overflow-hidden full-screen-bg"
       >
         <div
           :class="{ 'ml-6': !hasProfile }"

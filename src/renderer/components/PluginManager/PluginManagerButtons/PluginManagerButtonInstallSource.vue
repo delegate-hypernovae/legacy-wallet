@@ -73,7 +73,7 @@ export default {
   @apply .flex .items-center .font-semibold .bg-theme-button .rounded .cursor-pointer .text-theme-button-text;
 }
 .PluginManagerButtonInstallSource:hover {
-  @apply .bg-blue .text-white;
+  @apply .bg-blue .text-black;
 }
 .PluginManagerButtonInstallSource__icon {
   transition: all .1s ease-in;
@@ -81,6 +81,6 @@ export default {
 }
 .PluginManagerButtonInstallSource:hover .PluginManagerButtonInstallSource__icon {
   background-color: #0169f4;
-  @apply .text-white;
+  @apply .text-black;
 }
 </style>

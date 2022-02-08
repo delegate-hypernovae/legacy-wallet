@@ -55,8 +55,8 @@ export default new BaseModule(NetworkModel, {
       if (!isEmpty(all)) {
         // Update API server on existing networks
         const servers = {
-          'ark.devnet': 'https://dwallets.ark.io',
-          'ark.mainnet': 'https://wallets.ark.io'
+          'sxp.devnet': 'https://sxp.testnet.sh',
+          'sxp.mainnet': 'https://sxp.mainnet.sh'
         }
         const sanitizedAll = all.map(network => {
           const server = servers[network.id] || network.server
@@ -87,8 +87,8 @@ export default new BaseModule(NetworkModel, {
     },
 
     /*
-     * Update data of the network
-     */
+         * Update data of the network
+         */
     async updateData ({ commit, rootGetters }, network = null) {
       if (!network) {
         network = cloneDeep(rootGetters['session/network'])
@@ -136,8 +136,8 @@ export default new BaseModule(NetworkModel, {
     },
 
     /*
-     * Update the fee statistics of the current network
-     */
+         * Update the fee statistics of the current network
+         */
     async fetchFees ({ commit, rootGetters }, network = null) {
       if (!network) {
         network = rootGetters['session/network']

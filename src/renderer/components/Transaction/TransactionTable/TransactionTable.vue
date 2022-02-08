@@ -16,7 +16,7 @@
           <a
             class="flex items-center whitespace-no-wrap"
             href="#"
-            @click.stop="network_openExplorer('transaction', data.row.id)"
+            @click.stop="network_openExplorer('transactions', data.row.id)"
           >
             <SvgIcon
               v-show="isDashboard"

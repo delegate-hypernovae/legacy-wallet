@@ -46,11 +46,11 @@ export default {
   },
 
   getters: {
-    /**
-     * Get all peers for current network.
-     * @param  {Boolean} [ignoreCurrent=false]
-     * @return {Object[]}
-     */
+    /***
+         * Get all peers for current network.
+         * @param  {Boolean} [ignoreCurrent=false]
+         * @return {Object[]}
+         */
     all: (state, getters, _, rootGetters) => (ignoreCurrent = false, networkId = null) => {
       if (!networkId) {
         const profile = rootGetters['session/profile']
@@ -80,19 +80,19 @@ export default {
     },
 
     /**
-     * Get peer for current network based on ip.
-     * @param  {String} ip
-     * @return {(Object|undefined)}
-     */
+         * Get peer for current network based on ip.
+         * @param  {String} ip
+         * @return {(Object|undefined)}
+         */
     get: (_, getters) => ip => {
       return getters.all().find(peer => peer.ip === ip)
     },
 
     /**
-     * Determine best peer for current network (random from top 10).
-     * @param  {Boolean} [ignoreCurrent=true]
-     * @return {(Object|null)}
-     */
+         * Determine best peer for current network (random from top 10).
+         * @param  {Boolean} [ignoreCurrent=true]
+         * @return {(Object|null)}
+         */
     best: (_, getters) => (ignoreCurrent = true) => {
       const peers = getters.bestPeers(undefined, ignoreCurrent)
       if (!peers) {
@@ -103,10 +103,10 @@ export default {
     },
 
     /**
-     * Retrieves n random peers for the current network (excluding current peer)
-     * @param {Number} amount of peers to return
-     * @return {Object[]} containing peer objects
-     */
+         * Retrieves n random peers for the current network (excluding current peer)
+         * @param {Number} amount of peers to return
+         * @return {Object[]} containing peer objects
+         */
     randomPeers: (_, getters) => (amount = 5) => {
       const peers = getters.all(true) // Ignore current peer
       if (!peers.length) {
@@ -117,12 +117,12 @@ export default {
     },
 
     /**
-     * Retrieves n random seed peers for the current network (excluding current peer)
-     * Note that these peers are currently taken from a config file and will an empty array
-     * custom networks without a corresponding peers file
-     * @param {Number} amount of peers to return
-     * @return {Object[]} containing peer objects
-     */
+         * Retrieves n random seed peers for the current network (excluding current peer)
+         * Note that these peers are currently taken from a config file and will an empty array
+         * custom networks without a corresponding peers file
+         * @param {Number} amount of peers to return
+         * @return {Object[]} containing peer objects
+         */
     randomSeedPeers: (_, __, ___, rootGetters) => (amount = 5, networkId = null) => {
       if (!networkId) {
         const profile = rootGetters['session/profile']
@@ -142,10 +142,10 @@ export default {
     },
 
     /**
-     * Returns an array of peers that can be used to broadcast a transaction to
-     * Currently this consists of top 10 peers + 5 random peers + 5 random seed peers
-     * @return {Object[]} containing peer objects
-     */
+         * Returns an array of peers that can be used to broadcast a transaction to
+         * Currently this consists of top 10 peers + 5 random peers + 5 random seed peers
+         * @return {Object[]} containing peer objects
+         */
     broadcastPeers: (_, getters) => (networkId = null) => {
       const bestPeers = getters.bestPeers(10, false, networkId)
       const randomPeers = getters.randomPeers(5, networkId)
@@ -159,10 +159,10 @@ export default {
     },
 
     /**
-     * Determine best peer for current network (random from top 10).
-     * @param  {Boolean} [ignoreCurrent=true]
-     * @return {Object[]}
-     */
+         * Determine best peer for current network (random from top 10).
+         * @param  {Boolean} [ignoreCurrent=true]
+         * @return {Object[]}
+         */
     bestPeers: (_, getters) => (maxRandom = 10, ignoreCurrent = true) => {
       const peers = getters.all(ignoreCurrent)
       if (!peers.length) {
@@ -185,9 +185,9 @@ export default {
     },
 
     /**
-     * Get current peer.
-     * @return {(Object|boolean)} - false if no current peer
-     */
+         * Get current peer.
+         * @return {(Object|boolean)} - false if no current peer
+         */
     current: (state, getters, __, rootGetters) => (networkId = null) => {
       if (!networkId) {
         const profile = rootGetters['session/profile']
@@ -207,9 +207,9 @@ export default {
     },
 
     /**
-     * Get last updated date for peer list.
-     * @return {(Date|null)}
-     */
+         * Get last updated date for peer list.
+         * @return {(Date|null)}
+         */
     lastUpdated: (state, _, __, rootGetters) => () => {
       const profile = rootGetters['session/profile']
       if (!profile || !profile.networkId) {
@@ -240,11 +240,11 @@ export default {
 
   actions: {
     /**
-     * Set peers for specific network.
-     * @param  {Object[]} peers
-     * @param  {Number} networkId
-     * @return {void}
-     */
+         * Set peers for specific network.
+         * @param  {Object[]} peers
+         * @param  {Number} networkId
+         * @return {void}
+         */
     setToNetwork ({ commit }, { peers, networkId }) {
       commit('SET_PEERS', {
         peers: peers.map(peer => {
@@ -261,10 +261,10 @@ export default {
     },
 
     /**
-     * Set peers for current network.
-     * @param  {Object[]} peers
-     * @return {void}
-     */
+         * Set peers for current network.
+         * @param  {Object[]} peers
+         * @return {void}
+         */
     set ({ commit, rootGetters }, peers) {
       const profile = rootGetters['session/profile']
       if (!profile || !profile.networkId) {
@@ -286,10 +286,10 @@ export default {
     },
 
     /**
-     * Set current peer for current network.
-     * @param  {Object} peer
-     * @return {void}
-     */
+         * Set current peer for current network.
+         * @param  {Object} peer
+         * @return {void}
+         */
     async setCurrentPeer ({ commit, dispatch, rootGetters }, peer) {
       const profile = rootGetters['session/profile']
       if (!profile || !profile.networkId) {
@@ -309,9 +309,9 @@ export default {
     },
 
     /**
-     * Get Peer Discovery instance.
-     * @return {PeerDiscovery}
-     */
+         * Get Peer Discovery instance.
+         * @return {PeerDiscovery}
+         */
     async getPeerDiscovery ({ getters, rootGetters }, network = null) {
       if (!network) {
         network = rootGetters['session/network']
@@ -322,8 +322,8 @@ export default {
       }
 
       const networkLookup = {
-        'ark.mainnet': 'mainnet',
-        'ark.devnet': 'devnet'
+        'sxp.mainnet': 'mainnet',
+        'sxp.devnet': 'devnet'
       }
 
       if (networkLookup[network.id]) {
@@ -344,9 +344,9 @@ export default {
     },
 
     /**
-     * Refresh peer list.
-     * @return {void}
-     */
+         * Refresh peer list.
+         * @return {void}
+         */
     async refresh ({ dispatch, rootGetters }, network = null) {
       let peers = []
 
@@ -363,8 +363,8 @@ export default {
         }
 
         const networkLookup = {
-          'ark.mainnet': 'mainnet',
-          'ark.devnet': 'devnet'
+          'sxp.mainnet': 'mainnet',
+          'sxp.devnet': 'devnet'
         }
 
         if (network && networkLookup[network.id]) {
@@ -376,7 +376,7 @@ export default {
             try {
               const seeds = fallbackSeeds[network.id]
               const seed = seeds[Math.floor(Math.random() * seeds.length)]
-              const peerDiscovery = await PeerDiscovery.new({ networkOrHost: `http://${seed.ip}:4003/api/peers` })
+              const peerDiscovery = await PeerDiscovery.new({ networkOrHost: `http://${seed.ip}:6003/api/peers` })
 
               peers = await discoverPeers(peerDiscovery)
 
@@ -400,11 +400,11 @@ export default {
     },
 
     /**
-     * Get best peer for current network.
-     * @param  {Boolean} [refresh=true]
-     * @param  {Boolean} [skipIfCustom=true]
-     * @return {(Object|null)}
-     */
+         * Get best peer for current network.
+         * @param  {Boolean} [refresh=true]
+         * @param  {Boolean} [skipIfCustom=true]
+         * @return {(Object|null)}
+         */
     async findBest ({ dispatch, getters }, { refresh = true, network = null }) {
       if (refresh) {
         try {
@@ -431,11 +431,11 @@ export default {
     },
 
     /**
-     * Update to the best peer for current network.
-     * @param  {Boolean} [refresh=true]
-     * @param  {Boolean} [skipIfCustom=true]
-     * @return {(Object|null)}
-     */
+         * Update to the best peer for current network.
+         * @param  {Boolean} [refresh=true]
+         * @param  {Boolean} [skipIfCustom=true]
+         * @return {(Object|null)}
+         */
     async connectToBest ({ dispatch, getters }, { refresh = true, skipIfCustom = true }) {
       if (skipIfCustom) {
         const currentPeer = getters.current()
@@ -474,10 +474,10 @@ export default {
     },
 
     /**
-     * Update peer status.
-     * @param  {Object} [port]
-     * @return {(Object|void)}
-     */
+         * Update peer status.
+         * @param  {Object} [port]
+         * @return {(Object|void)}
+         */
     async updateCurrentPeerStatus ({ dispatch, getters }, currentPeer) {
       let updateCurrentPeer = false
       if (isEmpty(currentPeer)) {
@@ -525,10 +525,10 @@ export default {
     },
 
     /**
-     * Create client service object for a peer.
-     * @param  {Object} peer
-     * @return {ClientService}
-     */
+         * Create client service object for a peer.
+         * @param  {Object} peer
+         * @return {ClientService}
+         */
     async clientServiceFromPeer (_, peer) {
       const client = new ClientService()
       client.host = getBaseUrl(peer)
@@ -538,13 +538,13 @@ export default {
     },
 
     /**
-     * Validate custom peer, used to check it's acceptable to connect.
-     * @param  {String} ip
-     * @param  {Number} port
-     * @param  {Number} [ignoreNetwork=false]
-     * @param  {Number} [timeout=3000]
-     * @return {(Object|String)}
-     */
+         * Validate custom peer, used to check it's acceptable to connect.
+         * @param  {String} ip
+         * @param  {Number} port
+         * @param  {Number} [ignoreNetwork=false]
+         * @param  {Number} [timeout=3000]
+         * @return {(Object|String)}
+         */
     async validatePeer ({ rootGetters }, { host, ip, port, nethash, ignoreNetwork = false, timeout = 3000 }) {
       let networkConfig
       if (!host && ip) {

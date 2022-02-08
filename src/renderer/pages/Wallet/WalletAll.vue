@@ -1,6 +1,6 @@
 <template>
   <div class="WalletAll">
-    <div class="WalletAll__heading px-8 py-6 mb-3">
+    <div class="WalletAll__heading px-8 py-6 mb-3 border-orange">
       <div class="flex flex-row items-center">
         <div class="hidden sm:block">
           <ProfileAvatar
@@ -58,7 +58,7 @@
       </div>
     </div>
 
-    <div class="flex flex-1 bg-theme-feature rounded-lg p-10 overflow-y-auto">
+    <div class="flex flex-1 bg-theme-feature rounded-lg p-10 overflow-y-auto border-orange">
       <div class="block w-full">
         <div class="WalletAll__header">
           <h3 class="flex items-center">

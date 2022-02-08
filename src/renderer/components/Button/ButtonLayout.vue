@@ -54,6 +54,7 @@ export default {
 <style>
 .ButtonLayout {
   @apply text-theme-option-button-text border-none p-2 rounded;
+  background:#FF690030;
   transition: all 0.4s;
 }
 .ButtonLayout:hover {

@@ -1,11 +1,11 @@
 <template>
   <button
     :class="alert ? `AlertMessage--${alert.type}` : 'opacity-0 hidden'"
-    class="AlertMessage absolute z-50 max-w-1/2 min-w-1/4 rounded-lg inline pin-b pin-l m-4 p-4 text-white"
+    class="AlertMessage absolute z-50 max-w-1/2 min-w-1/4 rounded-lg inline pin-b pin-l m-4 p-4 text-black"
   >
     <div class="text-left message font-bold">
       <ButtonClose
-        icon-class="text-white"
+        icon-class="text-black"
         @click="showNext"
       />
       <span class="break-words">

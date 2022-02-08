@@ -1,20 +1,15 @@
 <template>
   <div class="SplashScreen bg-default-background absolute h-full w-full flex flex-col text-center select-none">
     <div class="flex flex-1 justify-center">
-      <div class="flex rounded-lg mb-3 p-5 bg-red m-auto">
+      <div class="flex rounded-lg mb-3 p-5 m-auto">
         <img
-          src="@/assets/images/ark-logo.png"
+          src="@/assets/images/solar.png"
           class="h-12"
         >
       </div>
     </div>
 
     <div class="flex-inline">
-      <div class="text-4xl mb-4">
-        <span class="font-semibold">{{ $t('COMMON.ARK') }}</span>
-        {{ $t('COMMON.DESKTOP_WALLET') }}
-      </div>
-
       <div class="text-sm mb-2">
         {{ loadingMessage }}
       </div>

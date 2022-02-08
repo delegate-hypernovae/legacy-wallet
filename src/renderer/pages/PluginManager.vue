@@ -672,6 +672,8 @@ export default {
 <style lang="postcss" scoped>
 .PluginManager {
   @apply .flex .flex-col .overflow-y-hidden .rounded-lg;
+  border: 1px solid #FF690030;
+
 }
 .Plugins__avatar__sign {
   @apply rounded-full w-8 h-8 flex justify-center items-center text-base absolute pin-b pin-r mr-3 -mb-1 border-2 border-theme-feature font-semibold select-none whitespace-no-wrap

@@ -21,7 +21,7 @@
         v-for="suggestion in suggestions"
         :key="suggestion"
         :class="acceptedWords[currentPosition] === suggestion
-          ? 'bg-green rounded p4 text-white font-semibold'
+          ? 'bg-green rounded p4 text-black font-semibold'
           : 'hover:text-theme-button-text'
         "
         :title="suggestion"

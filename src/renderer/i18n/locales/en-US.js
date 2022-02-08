@@ -263,7 +263,7 @@ export default {
   },
 
   APP_FOOTER: {
-    TEXT: 'Made with ♥ by ARK'
+    TEXT: 'Made with ♥ by Solar'
   },
 
   APP_SIDEMENU: {

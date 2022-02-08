@@ -1,5 +1,5 @@
 <template>
-  <div class="Announcements relative overflow-y-auto bg-theme-feature rounded-lg">
+  <div class="Announcements relative overflow-y-auto bg-theme-feature rounded-lg border-orange">
     <div class="Announcements--gradient-top sticky pin-t h-10" />
 
     <main class="flex-col px-10">

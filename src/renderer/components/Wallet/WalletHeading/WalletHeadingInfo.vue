@@ -13,8 +13,8 @@
           rx="35"
           ry="40"
           transform="translate(0) rotate(240 37.5 37.5)"
-          fill="#4c5082"
-          fill-opacity="0.45"
+          fill="#ff6900"
+          fill-opacity="0.99"
           x="-20"
           y="0"
         />
@@ -25,7 +25,7 @@
       :size="75"
       class="WalletHeading__identicon"
     />
-    <div class="flex flex-col justify-center text-white antialiased pl-4 z-10">
+    <div class="flex flex-col justify-center text-black antialiased pl-6 z-10">
       <div
         v-if="name"
         class="flex flex-row text-lg font-semibold text-theme-heading-text"

@@ -1,6 +1,6 @@
 <template>
   <div class="Dashboard relative flex flex-row h-full w-full">
-    <main class="bg-theme-feature rounded-lg lg:mr-4 flex-1 w-full flex-col overflow-y-auto">
+    <main class="bg-theme-feature rounded-lg lg:mr-4 flex-1 w-full flex-col overflow-y-auto border-orange">
       <div
         v-if="isMarketEnabled && isChartEnabled"
       >
@@ -27,7 +27,7 @@
       </div>
     </main>
 
-    <div class="Dashboard__wallets relative bg-theme-feature rounded-lg w-88 overflow-y-auto hidden lg:block">
+    <div class="Dashboard__wallets relative bg-theme-feature rounded-lg w-88 overflow-y-auto hidden lg:block border-orange">
       <div class="flex flex-row text-theme-feature-item-alternative-text mt-2">
         <WalletButtonCreate
           :force-text="true"

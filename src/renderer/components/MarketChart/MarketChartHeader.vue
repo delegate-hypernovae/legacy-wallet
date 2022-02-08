@@ -14,7 +14,7 @@
           v-for="(translation, period) in $options.periods"
           :key="period"
           :class="{
-            'bg-theme-button-special-choice text-white': activePeriod === period
+            'bg-theme-button-special-choice text-black': activePeriod === period
           }"
           class="MarketChartHeader__button mr-2 font-semibold px-3 py-1 text-theme-page-text rounded"
           :disabled="activePeriod === period"
@@ -100,7 +100,7 @@ export default {
   color: white;
 }
 .MarketChartHeader__button:hover {
-  @apply bg-theme-button-special-choice text-white;
+  @apply bg-theme-button-special-choice text-black;
   opacity: 0.5;
 }
 .MarketChartHeader__show-button {

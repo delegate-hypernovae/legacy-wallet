@@ -1,5 +1,5 @@
 <template>
-  <div class="WalletShow relative flex h-full">
+  <div class="WalletShow relative flex h-full border-orange">
     <WalletDetails
       v-if="wallet"
       ref="WalletDetails"

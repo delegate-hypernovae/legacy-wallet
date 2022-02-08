@@ -13,12 +13,12 @@ exports.NETWORKS = [
 ]
 
 exports.PEERS = {
-  'ark.mainnet': require('./peers/mainnet.json'),
-  'ark.devnet': require('./peers/devnet.json')
+  'sxp.mainnet': require('./peers/mainnet.json'),
+  'sxp.devnet': require('./peers/devnet.json')
 }
 
 exports.ANNOUNCEMENTS = {
-  rssUrl: 'https://blog.ark.io/feed'
+  rssUrl: 'https://blog.solar.network/feed'
 }
 
 exports.VENDOR_FIELD = {
@@ -165,15 +165,14 @@ exports.PLUGINS = {
   validation: require('./plugin-validation.json')
 }
 
-exports.THEMES = [
-  {
-    id: 'light',
-    title: 'Light theme' // TODO translate
-  },
-  {
-    id: 'dark',
-    title: 'Dark theme' // TODO translate
-  }
+exports.THEMES = [{
+  id: 'light',
+  title: 'Light theme' // TODO translate
+},
+{
+  id: 'dark',
+  title: 'Dark theme' // TODO translate
+}
 ]
 
 exports.V1 = {

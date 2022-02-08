@@ -63,7 +63,7 @@
                 v-if="step === 1"
                 :is-refreshing="isRefreshing"
                 color-class="WalletNew__ButtonReload-colorClass"
-                text-class="hover:text-white"
+                text-class="hover:text-black"
                 view-box="0 0 14 12"
                 class="WalletNew__refresh-button WalletNew__refresh-button--address"
                 @click="refreshAddresses"
@@ -93,7 +93,7 @@
                       />
                       <span
                         v-if="isSelected(address)"
-                        class="WalletNew_wallets__check absolute rounded-full flex items-center justify-center -mb-1 w-6 h-6 bg-green border-4 border-theme-feature text-white"
+                        class="WalletNew_wallets__check absolute rounded-full flex items-center justify-center -mb-1 w-6 h-6 bg-green border-4 border-theme-feature text-black"
                       >
                         <SvgIcon
                           name="checkmark"
@@ -556,7 +556,7 @@ export default {
   @apply .text-grey-dark .bg-theme-button;
 }
 .WalletNew__ButtonReload-colorClass:hover {
-  @apply .bg-blue .text-white;
+  @apply .bg-blue .text-black;
   box-shadow: 0 5px 15px rgba(9, 100, 228, 0.34);
   transition: all .1s ease-in
 }

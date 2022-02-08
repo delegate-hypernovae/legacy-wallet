@@ -14,7 +14,7 @@
       <RouterLink
         :title="$t('APP_SIDEMENU.DASHBOARD')"
         :to="{ name: 'dashboard' }"
-        class="AppSidemenu__logo bg-red hover:opacity-85 flex justify-center items-center"
+        class="AppSidemenu__logo bg-solar hover:opacity-85 flex justify-center items-center"
         @click.native="redirect('dashboard')"
       >
         <img src="@/assets/images/ark-logo.png">
@@ -249,7 +249,7 @@ export default {
 .AppSidemenu--horizontal .AppSidemenu__container { @apply bg-theme-feature }
 .AppSidemenu--horizontal .AppSidemenu__item { @apply w-16 h-full }
 .AppSidemenu--horizontal .AppSidemenu__logo { @apply p-4 }
-.AppSidemenu--horizontal .AppSidemenu__logo img { @apply h-12 }
+.AppSidemenu--horizontal .AppSidemenu__logo img { @apply h-12}
 .AppSidemenu--horizontal .AppSidemenu__avatar__dots {
   @apply absolute p-2 rounded-full bg-theme-feature;
   right: 0.1rem;
@@ -260,10 +260,14 @@ export default {
 
 .AppSidemenu--vertical { @apply w-22 h-full rounded-lg }
 .AppSidemenu--vertical .flexify { @apply flex flex-col }
-.AppSidemenu--vertical .AppSidemenu__container__scrollable { @apply rounded-lg py-2 }
+.AppSidemenu--vertical .AppSidemenu__container__scrollable { @apply rounded-lg py-2;
+border: 1px solid #FF690030;
+ }
 .AppSidemenu--vertical .AppSidemenu__item { @apply h-16 }
-.AppSidemenu--vertical .AppSidemenu__logo { @apply rounded-lg mb-3 p-5 }
-.AppSidemenu--vertical .AppSidemenu__logo img { @apply w-18 }
+.AppSidemenu--vertical .AppSidemenu__logo { @apply rounded-lg mb-3 p-5; padding:0.2rem!important
+ }
+.AppSidemenu--vertical .AppSidemenu__logo img { @apply w-18;
+  padding:0.2rem!important }
 .AppSidemenu--vertical .AppSidemenu__avatar__dots {
   @apply absolute p-2 rounded-full bg-theme-feature shadow;
   right: 1rem;

@@ -2,7 +2,7 @@
   <div>
     <ul
       :class="classes"
-      class="MenuOptions relative bg-theme-settings list-reset flex rounded py-5"
+      class="MenuOptions relative bg-theme-settings list-reset flex rounded py-5 border-orange-double"
     >
       <slot />
     </ul>

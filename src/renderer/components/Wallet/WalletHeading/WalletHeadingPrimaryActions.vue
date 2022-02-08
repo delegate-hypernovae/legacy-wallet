@@ -25,7 +25,7 @@
       :color-class="buttonStyle"
       :is-refreshing="isRefreshing"
       class="WalletNew__refresh-button mr-2"
-      text-class="hover:text-white"
+      text-class="hover:text-black"
       @click="refreshWallet"
     />
 
