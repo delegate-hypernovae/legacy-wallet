@@ -1,36 +1,5 @@
-# ARK Desktop Wallet
+# Solar Desktop Wallet
 
-![Ark Desktop Wallet](./banner.png)
-
-[![Build Status](https://badgen.now.sh/github/status/ArkEcosystem/desktop-wallet)](https://github.com/ArkEcosystem/desktop-wallet/actions?query=branch%3Adevelop)
-[![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/desktop-wallet)](https://github.com/ArkEcosystem/desktop-wallet/releases)
-[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
-
-> Lead Maintainer: [Lúcio Rubens](https://github.com/luciorubeens)
-
-## Download
-
-[Latest Release](https://github.com/ArkEcosystem/ark-desktop/releases/latest)
-
-## Installing via Package Managers
-
-### Arch Linux
-
-Install via [AUR](https://aur.archlinux.org/packages/ark-desktop):
-
-> Manjaro
-
-```shell
-pamac build ark-desktop
-```
-
-### Mac OS X
-
-Install via [Homebrew](https://brew.sh/):
-
-```shell
-brew cask install ark-desktop-wallet
-```
 
 ## Translations
 
@@ -118,9 +87,6 @@ yarn test:e2e:full
 
 </details>
 
-## Security
-
-If you discover a security vulnerability within this package, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
@@ -128,4 +94,4 @@ This project exists thanks to all the people who [contribute](../../contributors
 
 ## License
 
-[MIT](LICENSE) © [ARK Ecosystem](https://ark.io)
+[MIT](LICENSE) © [Solar Network](https://solar.network)

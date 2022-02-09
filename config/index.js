@@ -3,7 +3,7 @@ const os = require('os')
 const path = require('path')
 
 exports.APP = {
-  website: 'https://ark.io',
+  website: 'https://solar.network',
   transactionExpiryMinutes: 45
 }
 
@@ -138,7 +138,7 @@ exports.MARKET = {
 // It should remain "ARK" unless intentionally implementing a custom package.
 exports.PLUGINS = {
   adapters: ['npm'],
-  pluginsUrl: 'https://raw.githubusercontent.com/ark-ecosystem-desktop-plugins/config/master/plugins.json',
+  pluginsUrl: 'https://raw.githubusercontent.com/desktop-plugins/config/master/plugins.json',
   categories: [
     'gaming',
     'theme',
@@ -153,10 +153,10 @@ exports.PLUGINS = {
     'desktop-wallet',
     'plugin'
   ],
-  officialScope: 'arkecosystem',
-  officialAuthor: 'ARK Ecosystem',
+  officialScope: 'solarnetwork',
+  officialAuthor: 'Solar Network',
   path: path.resolve(os.homedir(), '.ark-desktop/plugins'),
-  reportUrl: 'https://ark.io/contact',
+  reportUrl: 'https://solar.network/contact',
   sharePath: path.resolve(os.homedir(), '.ark-desktop/share'),
   updateInterval: {
     value: 1,
