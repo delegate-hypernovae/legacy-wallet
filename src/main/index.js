@@ -205,6 +205,8 @@ if (!gotTheLock) {
   }
 }
 
+app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
+
 app.on('ready', () => {
   createLoadingWindow()
   createWindow()

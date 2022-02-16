@@ -291,12 +291,12 @@ export default {
     },
     slp1tokenIDs() {
       return this.tokens.reduce((all, token) => {
-        all[token.tokenIdHex] =
+        all[token.tokenId] =
           token.symbol +
           ' - ' +
-          this.currency_decimals(token.tokenBalance, token.tokenDecimals) +
+          (token.balance) +
           ' : ' +
-          token.tokenIdHex
+          token.tokenId
         return all
       }, {})
     },
@@ -399,7 +399,7 @@ export default {
     slpjson() {
       let jsontemplate
       if (this.ifSlpTypeGenesis) {
-        this.form.amount = 1000
+        this.form.amount = 5
         let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
           fractionDigits: this.slp.tokenDecimals
         })
@@ -420,7 +420,7 @@ export default {
           return
         }
         let decimals = this.tokens.find(
-          token => token.tokenIdHex === this.slp.tokenID
+          token => token.tokenId === this.slp.tokenID
         ).tokenDecimals
         let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
           fractionDigits: decimals

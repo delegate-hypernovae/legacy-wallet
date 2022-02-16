@@ -13,7 +13,7 @@
         <div
           v-if="data.column.field === 'name'"
         >
-          {{ data.row.name }}
+          {{ data.row.tokenName }}
         </div>
 
         <div
@@ -28,12 +28,12 @@
           <a
             class="flex items-center whitespace-no-wrap"
             href="#"
-            @click.stop="network_openExplorer('token', data.row.tokenIdHex)"
+            @click.stop="network_openExplorer('token', data.row.tokenId)"
           >
             <span
               class="mr-1"
             >
-              {{ data.row.tokenIdHex }}
+              {{ data.row.tokenId }}
             </span>
             <SvgIcon
               name="open-external"
@@ -50,7 +50,7 @@
           <span
             class="font-bold mr-2 whitespace-no-wrap"
           >
-            {{ currency_decimals(data.row.tokenBalance, data.row.tokenDecimals) }}
+            {{ (data.row.balance) }}
           </span>
         </div>
       </template>

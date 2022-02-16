@@ -18,7 +18,7 @@ export default {
       URIHELPER: 'Optional: Enter a document url for your token (Example: Logo)'
     },
     SLPHEADER: 'Tokens',
-    TOKENFORM: 'SLP Tokenform',
+    TOKENFORM: 'SLP Tokens',
     TOKENSTAB: {
       HEADER: 'SLP Tokens',
       TABLENAME: 'Token Name',
@@ -1008,7 +1008,7 @@ export default {
 
   TRANSACTION: {
     TYPE: {
-      TOKEN: 'SLP Tokenform',
+      TOKEN: 'SLP Tokens',
       TRANSFER: 'Transfer',
       SECOND_SIGNATURE: 'Second Signature',
       DELEGATE_REGISTRATION: 'Delegate Registration',

@@ -4,7 +4,7 @@ import axios from 'axios'
 class SlpService {
   async getTransaction (transactionid) {
     const response = await axios
-      // eslint-disable-next-line no-template-curly-in-string
+    // eslint-disable-next-line no-template-curly-in-string
       .get(`https://slp.testnet.sh/api/transaction/${transactionid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
@@ -12,7 +12,7 @@ class SlpService {
 
   async getToken (tokenid) {
     const response = await axios
-      // eslint-disable-next-line no-template-curly-in-string
+    // eslint-disable-next-line no-template-curly-in-string
       .get(`https://slp.testnet.sh/api/token/${tokenid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
@@ -27,15 +27,15 @@ class SlpService {
 
   async getWalletTokens (walletid) {
     const response = await axios
-      // eslint-disable-next-line no-template-curly-in-string
-      .get(`https://slp.testnet.sh/api/tokensByOwner/${walletid}`)
+    // eslint-disable-next-line no-template-curly-in-string
+      .get(`https://slp.testnet.sh/api/addresses/${walletid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
   }
 
   async getTransactions (tokenid) {
     const response = await axios
-      // eslint-disable-next-line no-template-curly-in-string
+    // eslint-disable-next-line no-template-curly-in-string
       .get(`https://slp.testnet.sh/api/transactions/${tokenid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
@@ -43,16 +43,9 @@ class SlpService {
 
   async getAllWalletTokens (address) {
     const response = await this.getWalletTokens(address)
-    const tokens = await this.getTokens()
-    response.forEach(function (item) {
-      tokens.forEach(function (token) {
-        if (token.tokenDetails.tokenIdHex === item.tokenIdHex) {
-          item.name = token.tokenDetails.name
-          item.symbol = token.tokenDetails.symbol
-        }
-      })
-    })
-    return response
+    console.log(response)
+
+    return response.data
   }
 }
 
