@@ -1,4 +1,38 @@
 export default {
+  SLP: {
+    TRANSACTION: {
+      BUTTON: 'SLP Transaction',
+      TYPE: 'Transaction Type',
+      TOKENLABEL: 'Select Token',
+      AMOUNT: 'Amount',
+      AMOUNTHELPER: 'Enter the amount of tokens',
+      NOTELABEL: 'Notes',
+      NOTELABELHELPER: 'Add a note to your transaction',
+      URI: 'URI',
+      TOKENNAME: 'Token Name',
+      TOKENNAMEHELPER: 'Enter the name for your token',
+      SYMBOL: 'Symbol',
+      SYMBOLHELPER: 'Enter the symbol for your token (max 7 characters)',
+      DECIMALS: 'Decimal Amount',
+      DECIMALSHELPER: 'Select the amount of decimals for your token',
+      URIHELPER: 'Optional: Enter a document url for your token (Example: Logo)'
+    },
+    SLPHEADER: 'Tokens',
+    TOKENFORM: 'SLP Tokenform',
+    TOKENSTAB: {
+      HEADER: 'SLP Tokens',
+      TABLENAME: 'Token Name',
+      TABLESYMBOL: 'Symbol',
+      TABLETOKENID: 'Token ID',
+      TABLEBALANCE: 'Balance',
+      TABLENOTOKENS: 'No tokens found.'
+    }
+  },
+  SLP1_TYPES: {
+    GENESIS: 'Genesis Transaction',
+    SEND: 'Transfer (Send)',
+    BURN: 'Burn Tokens'
+  },
   COMMON: {
     ADAPTER: 'Adapter',
     ADDRESS: 'Address',

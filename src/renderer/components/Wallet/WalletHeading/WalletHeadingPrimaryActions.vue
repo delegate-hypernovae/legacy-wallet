@@ -61,7 +61,23 @@
         />
       </template>
     </ButtonModal>
-
+    <ButtonModal
+      v-show="!currentWallet.isContact"
+      :class="buttonStyle"
+      :label="$t('SLP.TRANSACTION.BUTTON')"
+      icon="send"
+      view-box="0 0 12 12"
+    >
+      <template slot-scope="{ toggle, isOpen }">
+        <TransactionModal
+          v-if="isOpen"
+          :type="60"
+          @cancel="toggle"
+          @close="toggle"
+          @sent="toggle"
+        />
+      </template>
+    </ButtonModal>
     <ButtonModal
       v-show="!currentWallet.isContact"
       :class="buttonStyle"

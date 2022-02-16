@@ -16,6 +16,7 @@ import TransactionFormIpfs from './TransactionFormIpfs'
 import TransactionFormMultiSign from './TransactionFormMultiSign'
 import TransactionFormMultiSignature from './TransactionFormMultiSignature'
 import TransactionFormTransfer from './TransactionFormTransfer'
+import TransactionFormToken from './TransactionFormToken'
 import TransactionFormVote from './TransactionFormVote'
 import TransactionFormSecondSignature from './TransactionFormSecondSignature'
 
@@ -29,6 +30,7 @@ export default {
     TransactionFormMultiSign,
     TransactionFormMultiSignature,
     TransactionFormTransfer,
+    TransactionFormToken,
     TransactionFormVote,
     TransactionFormSecondSignature
   },

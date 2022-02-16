@@ -7,6 +7,14 @@ exports.APP = {
   transactionExpiryMinutes: 45
 }
 
+exports.SLP1 = {
+  types: [
+    'GENESIS',
+    'SEND',
+    'BURN'
+  ]
+}
+
 exports.NETWORKS = [
   require('./networks/mainnet.json'),
   require('./networks/devnet.json')
@@ -22,7 +30,7 @@ exports.ANNOUNCEMENTS = {
 }
 
 exports.VENDOR_FIELD = {
-  defaultMaxLength: 64
+  defaultMaxLength: 255
 }
 
 exports.I18N = {
@@ -65,7 +73,8 @@ exports.TRANSACTION_TYPES = {
     DELEGATE_RESIGNATION: 7,
     HTLC_LOCK: 8,
     HTLC_CLAIM: 9,
-    HTLC_REFUND: 10
+    HTLC_REFUND: 10,
+    TOKEN: 60
   },
 
   GROUP_2: {

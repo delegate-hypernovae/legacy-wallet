@@ -171,7 +171,8 @@ import {
   WalletSelectDelegate,
   WalletSignVerify,
   WalletStatistics,
-  WalletTransactions
+  WalletTransactions,
+  WalletTokens
 } from '../'
 import { MenuTab, MenuTabItem } from '@/components/Menu'
 import SvgIcon from '@/components/SvgIcon'
@@ -191,6 +192,7 @@ export default {
     WalletSignVerify,
     WalletStatistics,
     WalletTransactions,
+    WalletTokens,
     SvgIcon
   },
 
@@ -227,6 +229,11 @@ export default {
           component: 'WalletTransactions',
           componentName: 'WalletTransactions',
           text: this.$t('PAGES.WALLET.TRANSACTIONS')
+        },
+        {
+          component: 'WalletTokens',
+          componentName: 'WalletTokens',
+          text: this.$t('SLP.TOKENSTAB.HEADER')
         }
       ]
 
@@ -337,6 +344,9 @@ export default {
     currentTab () {
       switch (this.currentTab) {
         case 'WalletTransactions':
+          this.$synchronizer.focus('wallets', 'contacts')
+          break
+        case 'WalletTokens':
           this.$synchronizer.focus('wallets', 'contacts')
           break
         case 'WalletDelegates':
