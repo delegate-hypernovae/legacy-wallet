@@ -55,6 +55,7 @@ const createLoadingWindow = () => {
     autoHideMenuBar: true,
     resizable: false,
     webPreferences: {
+      webSecurity: false,
       nodeIntegration: true
     }
   })

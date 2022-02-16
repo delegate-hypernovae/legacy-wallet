@@ -5,7 +5,7 @@ class SlpService {
   async getTransaction (transactionid) {
     const response = await axios
       // eslint-disable-next-line no-template-curly-in-string
-      .get('https://slp.testnet.sh/api/transaction/${transactionid}')
+      .get(`https://slp.testnet.sh/api/transaction/${transactionid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
   }
@@ -13,7 +13,7 @@ class SlpService {
   async getToken (tokenid) {
     const response = await axios
       // eslint-disable-next-line no-template-curly-in-string
-      .get('hhttps://slp.testnet.sh/api/token/${tokenid}')
+      .get(`https://slp.testnet.sh/api/token/${tokenid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
   }
@@ -28,7 +28,7 @@ class SlpService {
   async getWalletTokens (walletid) {
     const response = await axios
       // eslint-disable-next-line no-template-curly-in-string
-      .get('https://slp.testnet.sh/api/address/${walletid}')
+      .get(`https://slp.testnet.sh/api/tokensByOwner/${walletid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
   }
@@ -36,7 +36,7 @@ class SlpService {
   async getTransactions (tokenid) {
     const response = await axios
       // eslint-disable-next-line no-template-curly-in-string
-      .get('https://slp.testnet.sh/api/transactions/${tokenid}')
+      .get(`https://slp.testnet.sh/api/transactions/${tokenid}`)
 
     return response.data // .transform(response.data.Data, dateTimeFormat)
   }
