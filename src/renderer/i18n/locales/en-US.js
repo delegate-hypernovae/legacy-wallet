@@ -1008,6 +1008,7 @@ export default {
 
   TRANSACTION: {
     TYPE: {
+      TOKEN: 'SLP Tokenform',
       TRANSFER: 'Transfer',
       SECOND_SIGNATURE: 'Second Signature',
       DELEGATE_REGISTRATION: 'Delegate Registration',
