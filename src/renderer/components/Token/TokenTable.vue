@@ -28,7 +28,7 @@
           <a
             class="flex items-center whitespace-no-wrap"
             href="#"
-            @click.stop="network_openExplorer('token', data.row.tokenId)"
+            @click.stop="network_openExplorer('tokens', data.row.tokenId)"
           >
             <span
               class="mr-1"
