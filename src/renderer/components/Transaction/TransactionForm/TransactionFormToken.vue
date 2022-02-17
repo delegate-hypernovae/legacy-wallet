@@ -152,7 +152,7 @@
 
     <div class="self-start">
       <button
-        :disabled="$v.form.$invalid || $v.slp.$invalid || notEnoughXQR"
+        :disabled="$v.form.$invalid || $v.slp.$invalid || notEnoughGas"
         class="blue-button mt-10"
         @click="onSubmit"
       >
@@ -190,6 +190,7 @@ import {
   required,
   requiredIf,
   numeric,
+  numericIf,
   between,
   maxLength,
   minLength,
@@ -267,7 +268,7 @@ export default {
   }),
 
   computed: {
-    notEnoughXQR() {
+    notEnoughGas() {
       return (
         parseInt(this.currency_unitToSub(this.form.amount)) +
           parseInt(this.currency_unitToSub(this.form.fee)) >
@@ -427,23 +428,18 @@ export default {
   },
 
   methods: {
-
-
-
+    
     slpjson() {
       let jsontemplate
       if (this.ifSlpTypeGenesis) {
         this.form.amount = 5
-        let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
-          fractionDigits: this.slp.tokenDecimals
-        })
         jsontemplate = {
           sslp1: {
             tp: this.slp.type,
             na: this.slp.tokenName,
             sy: this.slp.tokenSymbol,
             de: this.slp.tokenDecimals.toString(),
-            qt: rawquantity,
+            qt: this.slp.tokenAmount,
             du: this.slp.tokenURI,
             no: this.slp.tokenNote
           }
@@ -453,13 +449,6 @@ export default {
         if (!this.slp.tokenID) {
           return
         }
-      //  let decimals = this.tokens.find(
-      //    token => token.tokenId === this.slp.tokenID
-      //  ).tokenDecimals
-      
-       // let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
-       //   fractionDigits: decimals
-       // })
         jsontemplate = {
           sslp1: {
             tp: this.slp.type,
@@ -593,10 +582,10 @@ export default {
     slp: {
       tokenURI: {
         url,
-        maxLength: maxLength(32)
+        maxLength: maxLength(180)
       },
       tokenNote: {
-        maxLength: maxLength(32)
+        maxLength: maxLength(180)
       },
       tokenAmount: {
         required,
@@ -632,13 +621,14 @@ export default {
       type: {
         required,
         isValid(value) {
-          if (this.notEnoughXQR) {
+          if (this.notEnoughGas) {
             return false
           }
           return true
         }
       }
     },
+
     form: {
       recipientId: {
         requiredIf: requiredIf(function(form) {

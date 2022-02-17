@@ -5,7 +5,7 @@ export default {
       TYPE: 'Transaction Type',
       TOKENLABEL: 'Select Token',
       AMOUNT: 'Amount',
-      AMOUNTHELPER: 'Enter the amount of tokens',
+      AMOUNTHELPER: 'Enter the amount of tokens (integer value only. No decimals.)',
       NOTELABEL: 'Notes',
       NOTELABELHELPER: 'Add a note to your transaction',
       URI: 'URI',
