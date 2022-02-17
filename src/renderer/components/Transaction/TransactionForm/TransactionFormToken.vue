@@ -195,7 +195,7 @@ import {
   minLength,
   url
 } from 'vuelidate/lib/validators'
-import { SLP1, TRANSACTION_TYPES } from '@config'
+import { SLP1, TRANSACTION_TYPES, VENDOR_FIELD } from '@config'
 import {
   InputAddress,
   InputPassword,
@@ -205,7 +205,7 @@ import {
 import { ModalConfirmation, ModalLoader } from '@/components/Modal'
 import { PassphraseInput } from '@/components/Passphrase'
 import TransactionService from '@/services/transaction'
-import onSubmit from './mixin'
+import mixin from './mixin'
 import SlpService from '@/services/slpservice'
 import { ListDivided, ListDividedItem } from '@/components/ListDivided'
 
@@ -226,7 +226,7 @@ export default {
     PassphraseInput
   },
 
-  mixins: [onSubmit],
+  mixins: [mixin],
 
   props: {
     schema: {
@@ -255,7 +255,8 @@ export default {
       tokenAmount: '',
       tokenDecimals: 8
     },
-    slpWallet: 'QjeTQp29p9xRvTcoox4chc6jQZAHwq87JC',
+    // slp master
+    slpWallet: 'DCJGEVjt2aF2zF3QWsALUYUEqnJ686FpQ6',
     tokens: [],
     isSendAllActive: false,
     showEncryptLoader: false,
@@ -369,6 +370,36 @@ export default {
       }
     }
   },
+
+  vendorFieldLabel () {
+    return `${this.$t('TRANSACTION.VENDOR_FIELD')} - ${this.$t('VALIDATION.MAX_LENGTH', [this.vendorFieldMaxLength])}`
+  },
+
+  vendorFieldHelperText () {
+    const vendorFieldLength = this.form.vendorField.length
+
+    if (vendorFieldLength === this.vendorFieldMaxLength) {
+      return this.$t('VALIDATION.VENDOR_FIELD.LIMIT_REACHED', [this.vendorFieldMaxLength])
+    } else if (vendorFieldLength) {
+      return this.$t('VALIDATION.VENDOR_FIELD.LIMIT_REMAINING', [
+        this.vendorFieldMaxLength - vendorFieldLength,
+        this.vendorFieldMaxLength
+      ])
+    }
+
+      return null
+    },
+
+  vendorFieldMaxLength () {
+    const vendorField = this.walletNetwork.vendorField
+
+    if (vendorField) {
+      return vendorField.maxLength
+    }
+
+    return VENDOR_FIELD.defaultMaxLength
+  },
+
   watch: {
     slp: {
       handler: function() {
@@ -396,6 +427,9 @@ export default {
   },
 
   methods: {
+
+
+
     slpjson() {
       let jsontemplate
       if (this.ifSlpTypeGenesis) {
@@ -404,7 +438,7 @@ export default {
           fractionDigits: this.slp.tokenDecimals
         })
         jsontemplate = {
-          slp1: {
+          sslp1: {
             tp: this.slp.type,
             na: this.slp.tokenName,
             sy: this.slp.tokenSymbol,
@@ -419,17 +453,18 @@ export default {
         if (!this.slp.tokenID) {
           return
         }
-        let decimals = this.tokens.find(
-          token => token.tokenId === this.slp.tokenID
-        ).tokenDecimals
-        let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
-          fractionDigits: decimals
-        })
+      //  let decimals = this.tokens.find(
+      //    token => token.tokenId === this.slp.tokenID
+      //  ).tokenDecimals
+      
+       // let rawquantity = this.currency_unitToSub(this.slp.tokenAmount, {
+       //   fractionDigits: decimals
+       // })
         jsontemplate = {
-          slp1: {
+          sslp1: {
             tp: this.slp.type,
             id: this.slp.tokenID,
-            qt: rawquantity,
+            qt: this.slp.tokenAmount,
             no: this.slp.tokenNote
           }
         }
@@ -486,6 +521,7 @@ export default {
     },
     async submit() {
       const transactionData = {
+        address: this.currentWallet.address,
         amount: this.currency_unitToSub(this.form.amount),
         recipientId: this.ifSlpTypeSend
           ? this.form.recipientId

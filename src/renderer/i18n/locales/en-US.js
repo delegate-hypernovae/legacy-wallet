@@ -1117,7 +1117,8 @@ export default {
       MULTI_PAYMENT: 'Multipayment created successfully',
       DELEGATE_RESIGNATION: 'Delegate resignation was successful',
       SAVE_OFFLINE: 'The transaction file was saved successfully in: {path}',
-      LOAD_FROM_FILE: 'The transaction file was loaded successfully'
+      LOAD_FROM_FILE: 'The transaction file was loaded successfully',
+      TOKEN: 'Token Transaction Success'
     },
     VOTE: {
       VOTE_DELEGATE: 'Vote for delegate {delegate}',

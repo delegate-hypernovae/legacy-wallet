@@ -70,6 +70,12 @@ export default {
       )
     },
 
+    transaction_isToken (type, typeGroup) {
+      return (
+        isStandardTypeGroup(typeGroup) && type === TRANSACTION_TYPES.GROUP_1.TOKEN
+      )
+    },
+
     // Magistrate 2.0
 
     transaction_isEntityRegistration (type, typeGroup, asset) {
