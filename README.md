@@ -50,13 +50,13 @@ sudo apt-get install libudev-dev libusb-1.0-0-dev
 - Python 2.7
 - Visual Studio 2017
 
-#### Node 12
-To download, head over to [here](https://nodejs.org/en/) and download Node 12.
+#### Node 14
+To download, head over to [here](https://nodejs.org/en/) and download Node 14.
 
 If you already have npm installed, you can run
 ```
 npm install -g n
-sudo n 12
+sudo n 14
 ```
 
 #### Yarn
