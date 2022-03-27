@@ -18,7 +18,7 @@ export default {
 
   data: () => ({
     text: '',
-    url: 'https://solar.network'
+    url: 'https://hypernovae.io'
   }),
 
   created () {

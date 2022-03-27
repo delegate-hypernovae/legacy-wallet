@@ -1,5 +1,5 @@
 <template>
-  <div class="ProfileAll relative bg-theme-feature rounded-lg m-r-4 p-10 border-orange">
+  <div class="ProfileAll relative bg-theme-feature rounded-lg m-r-4 p-10">
     <h3>{{ $t('PAGES.PROFILE_ALL.HEADER') }} ({{ totalBalances.join(', ') }})</h3>
 
     <div class="ProfileAll__grid mt-10">

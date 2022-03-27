@@ -5,7 +5,9 @@
     <MenuTab
       ref="menutab"
       v-model="currentTab"
-      :class="{ 'rounded-b-lg lg:rounded-br-none' : !isDelegatesTab || !isOwned }"
+      :class="{
+        'rounded-b-lg lg:rounded-br-none': !isDelegatesTab || !isOwned
+      }"
       class="flex-1 overflow-y-auto"
     >
       <MenuTabItem
@@ -21,9 +23,7 @@
             name="send"
             view-box="0 0 8 8"
           />
-          <span
-            class="text-bold ml-2 text-base"
-          >
+          <span class="text-bold ml-2 text-base">
             {{ $t('COMMON.BACK') }}
           </span>
         </div>
@@ -79,7 +79,15 @@
             path="WALLET_DELEGATES.AWAITING_VOTE_CONFIRMATION"
           >
             <strong place="type">
-              {{ $t(`TRANSACTION.TYPE.${unconfirmedVote.publicKey.charAt(0) === '+' ? 'VOTE' : 'UNVOTE'}`) }}
+              {{
+                $t(
+                  `TRANSACTION.TYPE.${
+                    unconfirmedVote.publicKey.charAt(0) === '+'
+                      ? 'VOTE'
+                      : 'UNVOTE'
+                  }`
+                )
+              }}
             </strong>
           </i18n>
         </div>
@@ -90,10 +98,14 @@
           <i18n
             tag="span"
             :class="{
-              'border-r border-theme-line-separator' : votedDelegate.rank
+              'border-r border-theme-line-separator': votedDelegate.rank
             }"
             class="font-semibold pr-6"
-            :path="isOwned ? 'WALLET_DELEGATES.VOTED_FOR' : 'WALLET_DELEGATES.WALLET_VOTED_FOR'"
+            :path="
+              isOwned
+                ? 'WALLET_DELEGATES.VOTED_FOR'
+                : 'WALLET_DELEGATES.WALLET_VOTED_FOR'
+            "
           >
             <strong place="delegate">
               {{ votedDelegate.username }}
@@ -250,16 +262,25 @@ export default {
           text: this.$t('PAGES.WALLET.SIGN_VERIFY')
         })
 
-        if (this.currentNetwork && this.currentNetwork.market && this.currentNetwork.market.enabled) {
+        if (
+          this.currentNetwork &&
+          this.currentNetwork.market &&
+          this.currentNetwork.market.enabled
+        ) {
           tabs.push({
             component: 'WalletExchange',
             componentName: 'WalletExchange',
-            text: this.$t('PAGES.WALLET.PURCHASE', { ticker: this.currentNetwork.market.ticker })
+            text: this.$t('PAGES.WALLET.PURCHASE', {
+              ticker: this.currentNetwork.market.ticker
+            })
           })
         }
       }
 
-      if (this.currentNetwork.constants && this.currentNetwork.constants.aip11) {
+      if (
+        this.currentNetwork.constants &&
+        this.currentNetwork.constants.aip11
+      ) {
         tabs.push({
           component: 'WalletIpfs',
           componentName: 'WalletIpfs',
@@ -429,9 +450,17 @@ export default {
 
     getVoteTitle () {
       if (this.isUnvoting && this.votedDelegate) {
-        return this.$t('WALLET_DELEGATES.UNVOTE_DELEGATE', { delegate: this.votedDelegate.username })
-      } else if (this.isVoting && this.selectedDelegate && !this.selectedDelegate.isResigned) {
-        return this.$t('WALLET_DELEGATES.VOTE_DELEGATE', { delegate: this.selectedDelegate.username })
+        return this.$t('WALLET_DELEGATES.UNVOTE_DELEGATE', {
+          delegate: this.votedDelegate.username
+        })
+      } else if (
+        this.isVoting &&
+        this.selectedDelegate &&
+        !this.selectedDelegate.isResigned
+      ) {
+        return this.$t('WALLET_DELEGATES.VOTE_DELEGATE', {
+          delegate: this.selectedDelegate.username
+        })
       } else {
         return `${this.$t('COMMON.DELEGATE')} ${this.selectedDelegate.username}`
       }
@@ -444,10 +473,14 @@ export default {
 
       try {
         this.isLoadingVote = true
-        const walletVote = await this.$client.fetchWalletVote(this.currentWallet.address)
+        const walletVote = await this.$client.fetchWalletVote(
+          this.currentWallet.address
+        )
 
         if (walletVote) {
-          this.votedDelegate = this.$store.getters['delegate/byPublicKey'](walletVote)
+          this.votedDelegate = this.$store.getters['delegate/byPublicKey'](
+            walletVote
+          )
           this.walletVote.username = this.votedDelegate.username
         } else {
           this.votedDelegate = null
@@ -460,10 +493,12 @@ export default {
         const messages = at(error, 'response.body.message')
         if (messages[0] !== 'Wallet not found') {
           this.$logger.error(error)
-          this.$error(this.$t('COMMON.FAILED_FETCH', {
-            name: 'fetch vote',
-            msg: error.message
-          }))
+          this.$error(
+            this.$t('COMMON.FAILED_FETCH', {
+              name: 'fetch vote',
+              msg: error.message
+            })
+          )
         }
       } finally {
         this.isLoadingVote = false
@@ -530,13 +565,13 @@ export default {
 .WalletDetails__button {
   transition: 0.5s;
   cursor: pointer;
-  @apply .flex .items-center .text-theme-voting-banner-button-text .bg-theme-voting-banner-button .whitespace-no-wrap .mt-4 .mb-4 .p-4 .font-semibold .w-auto .text-center
+  @apply .flex .items-center .text-theme-voting-banner-button-text .bg-theme-voting-banner-button .whitespace-no-wrap .mt-4 .mb-4 .p-4 .font-semibold .w-auto .text-center;
 }
 .WalletDetails__button:hover {
   transition: 0.5s;
-  @apply .text-theme-voting-banner-button-text-hover .bg-theme-voting-banner-button-hover
+  @apply .text-theme-voting-banner-button-text-hover .bg-theme-voting-banner-button-hover;
 }
 .WalletDetails__back-button > svg {
-  transform: rotate(-135deg)
+  transform: rotate(-135deg);
 }
 </style>

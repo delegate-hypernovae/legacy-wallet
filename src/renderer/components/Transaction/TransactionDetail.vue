@@ -9,7 +9,7 @@
         <span class="text-theme-feature-item-text">
           {{ $t('TRANSACTION_DETAIL.SEND_AMOUNT', { token: currency }) }}
         </span>
-        <span class="text-black font-bold">
+        <span class="text-white font-bold">
           {{ amount }}
         </span>
       </div>
@@ -116,7 +116,7 @@ export default {
         case 3:
           return 'text-theme-send-circle-vote-text'
         default:
-          return 'text-black'
+          return 'text-white'
       }
     }
   }

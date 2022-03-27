@@ -52,7 +52,6 @@ let mainConfig = {
     path: path.join(__dirname, '../dist/electron')
   },
   plugins: [
-    new webpack.ContextReplacementPlugin(/keyv/),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   resolve: {

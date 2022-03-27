@@ -98,8 +98,8 @@ export default {
 
   methods: {
     /**
-     * Decrypt the WIF of the wallet if has a password and submit the form
-     */
+         * Decrypt the WIF of the wallet if has a password and submit the form
+         */
     async onSubmit () {
       if (this.form.walletPassword && this.form.walletPassword.length) {
         this.showEncryptLoader = true

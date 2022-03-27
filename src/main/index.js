@@ -47,15 +47,14 @@ const loadingURL =
 
 const createLoadingWindow = () => {
   windows.loading = new BrowserWindow({
-    width: 1024,
-    height: 960,
+    width: 800,
+    height: 600,
     backgroundColor: '#f7fafb',
     skipTaskbar: true,
     frame: false,
     autoHideMenuBar: true,
     resizable: false,
     webPreferences: {
-      webSecurity: false,
       nodeIntegration: true
     }
   })
@@ -181,7 +180,7 @@ if (!gotTheLock) {
     // Someone tried to run a second instance, we should focus our window.
     // argv: An array of the second instance’s (command line / deep linked) arguments
     for (const arg of argv) {
-      if (arg.startsWith('sxp:')) {
+      if (arg.startsWith('ark:')) {
         deeplinkingUrl = arg
         broadcastURL(deeplinkingUrl)
         break
@@ -197,16 +196,14 @@ if (!gotTheLock) {
   })
 
   for (const arg of process.argv) {
-    if (arg.startsWith('sxp:')) {
+    if (arg.startsWith('ark:')) {
       deeplinkingUrl = arg
       broadcastURL(deeplinkingUrl)
       break
     }
   }
 }
-
 app.commandLine.appendSwitch('disable-features', 'OutOfBlinkCors')
-
 app.on('ready', () => {
   createLoadingWindow()
   createWindow()
@@ -234,4 +231,4 @@ app.on('open-url', (event, url) => {
   broadcastURL(deeplinkingUrl)
 })
 
-app.setAsDefaultProtocolClient('sxp', process.execPath, ['--'])
+app.setAsDefaultProtocolClient('ark', process.execPath, ['--'])

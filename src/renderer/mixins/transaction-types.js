@@ -23,7 +23,7 @@ export default {
     transaction_isDelegateRegistration (type, typeGroup) {
       return (
         isStandardTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_1.DELEGATE_REGISTRATION
+                type === TRANSACTION_TYPES.GROUP_1.DELEGATE_REGISTRATION
       )
     },
 
@@ -50,7 +50,7 @@ export default {
     transaction_isDelegateResignation (type, typeGroup) {
       return (
         isStandardTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_1.DELEGATE_RESIGNATION
+                type === TRANSACTION_TYPES.GROUP_1.DELEGATE_RESIGNATION
       )
     },
 
@@ -81,147 +81,147 @@ export default {
     transaction_isEntityRegistration (type, typeGroup, asset) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
-        asset &&
-        asset.action === TRANSACTION_TYPES_ENTITY.ACTION.REGISTER
+                type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
+                asset &&
+                asset.action === TRANSACTION_TYPES_ENTITY.ACTION.REGISTER
       )
     },
 
     transaction_isEntityResignation (type, typeGroup, asset) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
-        asset &&
-        asset.action === TRANSACTION_TYPES_ENTITY.ACTION.RESIGN
+                type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
+                asset &&
+                asset.action === TRANSACTION_TYPES_ENTITY.ACTION.RESIGN
       )
     },
 
     transaction_isEntityUpdate (type, typeGroup, asset) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
-        asset &&
-        asset.action === TRANSACTION_TYPES_ENTITY.ACTION.UPDATE
+                type === TRANSACTION_TYPES.GROUP_2.ENTITY &&
+                asset &&
+                asset.action === TRANSACTION_TYPES_ENTITY.ACTION.UPDATE
       )
     },
 
     transaction_isBusinessEntityRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isBusinessEntityResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isBusinessEntityUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.BUSINESS
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isProductEntityRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isProductEntityResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isProductEntityUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PRODUCT
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isPluginEntityRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isPluginEntityResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isPluginEntityUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.PLUGIN
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isModuleEntityRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isModuleEntityResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isModuleEntityUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.MODULE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isDelegateEntityRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isDelegateEntityResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
     transaction_isDelegateEntityUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
-        // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
+                asset.type === TRANSACTION_TYPES_ENTITY.TYPE.DELEGATE
+                // asset.subType === TRANSACTION_TYPES_ENTITY.SUBTYPE.NONE
       )
     },
 
@@ -230,42 +230,42 @@ export default {
     transaction_isLegacyBusinessRegistration (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BUSINESS_REGISTRATION
+                type === TRANSACTION_TYPES.GROUP_2.BUSINESS_REGISTRATION
       )
     },
 
     transaction_isLegacyBusinessResignation (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BUSINESS_RESIGNATION
+                type === TRANSACTION_TYPES.GROUP_2.BUSINESS_RESIGNATION
       )
     },
 
     transaction_isLegacyBusinessUpdate (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BUSINESS_UPDATE
+                type === TRANSACTION_TYPES.GROUP_2.BUSINESS_UPDATE
       )
     },
 
     transaction_isLegacyBridgechainRegistration (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_REGISTRATION
+                type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_REGISTRATION
       )
     },
 
     transaction_isLegacyBridgechainResignation (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_RESIGNATION
+                type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_RESIGNATION
       )
     },
 
     transaction_isLegacyBridgechainUpdate (type, typeGroup) {
       return (
         isMagistrateTypeGroup(typeGroup) &&
-        type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_UPDATE
+                type === TRANSACTION_TYPES.GROUP_2.BRIDGECHAIN_UPDATE
       )
     },
 
@@ -274,27 +274,27 @@ export default {
     transaction_isUndefinedRegistration (type, typeGroup, asset) {
       return (
         this.transaction_isEntityRegistration(type, typeGroup, asset) &&
-        !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
-          asset.type
-        )
+                !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
+                  asset.type
+                )
       )
     },
 
     transaction_isUndefinedResignation (type, typeGroup, asset) {
       return (
         this.transaction_isEntityResignation(type, typeGroup, asset) &&
-        !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
-          asset.type
-        )
+                !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
+                  asset.type
+                )
       )
     },
 
     transaction_isUndefinedUpdate (type, typeGroup, asset) {
       return (
         this.transaction_isEntityUpdate(type, typeGroup, asset) &&
-        !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
-          asset.type
-        )
+                !Object.values(TRANSACTION_TYPES_ENTITY.TYPE).includes(
+                  asset.type
+                )
       )
     }
   }

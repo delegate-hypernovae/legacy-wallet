@@ -11,9 +11,10 @@
  *
  * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
  */
-
 @import './_tailwind-preflight.css';
+
 @import 'animate.css';
+
 @import './_animations.css';
 @import './_avatars.css';
 @import './_badges.css';
@@ -25,41 +26,10 @@
 @import './_theme.css';
 @import './_tooltip.css';
 @import './_table.css';
-.full-screen-bg {
-    background-size: cover!important;
-}
-
-.border-orange {
-    border: 1px solid #FF690030;
-}
-
-.border-orange-double {
-    border: 2px solid #FF690030;
-}
-
-.bg-solar {
-    background-color: #f25d38;
-}
-
-.bg-orange-network {
-    background: #FF690030!important
-}
-
-.bg-peer-select {
-    background-color: #ffdbc1;
-    color: #7d3400!important;
-}
-
-.bg-peer-select:hover {
-    background-color: #ffb580!important;
-    color: #7d3400;
-}
-
 
 /**
  * This injects any component classes registered by plugins.
  */
-
 @tailwind components;
 
 /**
@@ -68,10 +38,8 @@
  * override them.
  */
 
-
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
  */
-
 @tailwind utilities;

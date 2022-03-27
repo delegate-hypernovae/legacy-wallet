@@ -12,7 +12,7 @@
         <span class="text-theme-feature-item-text text-sm mb-1">
           {{ $t('SIGN_VERIFY.CONFIRMATION') }}
         </span>
-        <span class="text-black text-lg">
+        <span class="text-white text-lg">
           {{ isVerified ? $t('SIGN_VERIFY.VERIFIED') : $t('SIGN_VERIFY.NOT_VERIFIED') }}
         </span>
       </div>

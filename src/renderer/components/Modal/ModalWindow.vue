@@ -261,7 +261,7 @@ export default {
   @apply ModalWindow__container__footer bg-yellow-lighter text-grey-darkest;
 }
 .ModalWindow__container__footer--error {
-  @apply ModalWindow__container__footer bg-theme-error text-black;
+  @apply ModalWindow__container__footer bg-theme-error text-white;
 }
 .ModalWindow--minimized .ModalWindow__container__footer {
   @apply hidden;

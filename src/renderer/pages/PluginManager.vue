@@ -10,6 +10,12 @@
           class="ml-8 mr-auto"
           @search="onSearch"
         />
+
+        <PluginManagerButtonInstallSource
+          :is-disabled="!isAdvancedModeEnabled"
+          source="url"
+          @click="setModal('url')"
+        />
       </div>
     </div>
 
@@ -216,6 +222,7 @@ import {
 import { ModalLoader } from '@/components/Modal'
 import {
   PluginManagerButtonFilter,
+  PluginManagerButtonInstallSource,
   PluginManagerButtonMenu
 } from '@/components/PluginManager/PluginManagerButtons'
 
@@ -230,6 +237,7 @@ export default {
     PluginDetailsModal,
     PluginInstallModal,
     PluginManagerButtonFilter,
+    PluginManagerButtonInstallSource,
     PluginManagerButtonMenu,
     PluginManagerGrid,
     PluginManagerSearchBar,
@@ -664,8 +672,6 @@ export default {
 <style lang="postcss" scoped>
 .PluginManager {
   @apply .flex .flex-col .overflow-y-hidden .rounded-lg;
-  border: 1px solid #FF690030;
-
 }
 .Plugins__avatar__sign {
   @apply rounded-full w-8 h-8 flex justify-center items-center text-base absolute pin-b pin-r mr-3 -mb-1 border-2 border-theme-feature font-semibold select-none whitespace-no-wrap

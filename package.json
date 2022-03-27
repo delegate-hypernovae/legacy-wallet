@@ -1,60 +1,64 @@
 {
+    "name": "ark-desktop-wallet",
+    "version": "2.9.5",
     "private": true,
-    "name": "solar-desktop-wallet",
-    "version": "2.9.6",
+    "description": "Ark Ecosystem Desktop Wallet",
+    "homepage": "https://github.com/ArkEcosystem/desktop-wallet#readme",
+    "bugs": {
+        "url": "https://github.com/ArkEcosystem/desktop-wallet/issues"
+    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/solar-network/wallet.git"
+        "url": "git+https://github.com/ArkEcosystem/desktop-wallet.git"
     },
-    "author": "Ark Ecosystem <info@ark.io>",
+    "license": "MIT",
+    "author": "ArkEcosystem <info@ark.io>",
     "contributors": [
-        "Nayiem Willems <hello@solar.network>",
         "Alex Barnsley <alex@ark.io>",
         "ItsANameToo <itsanametoo@protonmail.com>",
         "Juan A. Martín <juan@ark.io>",
         "Lúcio Rubens <lucio@ark.io>"
     ],
-    "description": "Solar Desktop Wallet",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/solar-network/wallet/issues"
-    },
-    "homepage": "https://github.com/solar-network/wallet#readme",
     "main": "./dist/electron/main.js",
     "scripts": {
         "build": "node .electron-vue/build.js && electron-builder --publish never",
-        "build:win": "node .electron-vue/build.js && electron-builder --win --x64 --ia32 --publish never",
-        "build:win:publish": "node .electron-vue/build.js && electron-builder --win --x64 --ia32 --publish onTagOrDraft",
-        "build:win32": "node .electron-vue/build.js && electron-builder --win --ia32 --publish never",
-        "build:win64": "node .electron-vue/build.js && electron-builder --win --x64 --publish never",
-        "build:mac": "node .electron-vue/build.js && electron-builder --mac --publish never",
-        "build:mac:publish": "node .electron-vue/build.js && electron-builder --mac --publish onTagOrDraft",
+        "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
+        "build:dir": "node .electron-vue/build.js && electron-builder --dir",
         "build:linux": "node .electron-vue/build.js && electron-builder --linux --publish never",
         "build:linux:publish": "node .electron-vue/build.js && electron-builder --linux --publish onTagOrDraft",
-        "build:dir": "node .electron-vue/build.js && electron-builder --dir",
-        "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
+        "build:mac": "node .electron-vue/build.js && electron-builder --mac --publish never",
+        "build:mac:publish": "node .electron-vue/build.js && electron-builder --mac --publish onTagOrDraft",
         "build:web": "cross-env BUILD_TARGET=web node .electron-vue/build.js",
+        "build:win": "node .electron-vue/build.js && electron-builder --win --x64 --ia32 --publish never",
+        "build:win32": "node .electron-vue/build.js && electron-builder --win --ia32 --publish never",
+        "build:win64": "node .electron-vue/build.js && electron-builder --win --x64 --publish never",
+        "build:win:publish": "node .electron-vue/build.js && electron-builder --win --x64 --ia32 --publish onTagOrDraft",
         "dev": "cross-env ENABLE_SCREENSHOT_PROTECTION=false node .electron-vue/dev-runner.js",
+        "postinstall": "electron-builder install-app-deps",
         "lint": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter src __tests__",
         "lint:fix": "eslint --ext .js,.vue -f ./node_modules/eslint-friendly-formatter --fix src __tests__",
         "pack": "npm run pack:main && npm run pack:renderer",
         "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
         "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
-        "postinstall": "electron-builder install-app-deps",
-        "preversion": "cross-env ./scripts/version-artifacts.sh",
         "test": "npm run test:unit && npm run test:e2e:full",
         "test:e2e": "jest --config __tests__/e2e.jest.conf.js",
         "test:e2e:full": "npm run pack && npm run test:e2e",
         "test:unit": "jest --config __tests__/unit.jest.conf.js",
         "test:unit:coverage": "jest --config __tests__/unit.jest.conf.js --coverage",
-        "test:unit:watch": "jest --config __tests__/unit.jest.conf.js --watch"
+        "test:unit:watch": "jest --config __tests__/unit.jest.conf.js --watch",
+        "preversion": "cross-env ./scripts/version-artifacts.sh"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
     },
     "dependencies": {
         "@arkecosystem/client": "^1.0.5",
-        "@arkecosystem/core-magistrate-crypto": "git+https://github.com/solar-network/wallet-core-magistrate-crypto.git",
-        "@arkecosystem/crypto": "git+https://github.com/solar-network/crypto.git",
+        "@arkecosystem/core-magistrate-crypto": "^3.0.0-next.9",
+        "@arkecosystem/crypto": "^3.0.0-next.9",
         "@arkecosystem/ledger-transport": "^1.1.2",
-        "@arkecosystem/peers": "git+https://github.com/solar-network/wallet-peers.git",
+        "@arkecosystem/peers": "^0.3.0",
         "@arkecosystem/platform-sdk": "^0.0.2",
         "@babel/runtime": "^7.4.2",
         "@fortawesome/fontawesome-svg-core": "^1.2.21",
@@ -164,6 +168,7 @@
         "file-loader": "^6.0.0",
         "glob-all": "^3.1.0",
         "html-webpack-plugin": "^4.0.0",
+        "husky": "^4.0.0",
         "intl": "^1.2.5",
         "jest": "^24.9.0",
         "jest-extended": "^0.11.1",
@@ -174,7 +179,7 @@
         "mock-socket": "^9.0.0",
         "multispinner": "^0.2.1",
         "nock": "^12.0.0",
-        "node-abi": "^3.8.0",
+        "node-abi": "^2.11.0",
         "node-loader": "^0.6.0",
         "postcss-loader": "^3.0.0",
         "purgecss": "^2.0.5",
@@ -201,8 +206,8 @@
         "webpack-hot-middleware": "^2.25.0"
     },
     "build": {
-        "productName": "Solar Desktop Wallet",
-        "appId": "network.solar.wallet",
+        "productName": "ARK Desktop Wallet",
+        "appId": "io.ark.desktop-wallet",
         "artifactName": "${name}-${os}-${arch}-${version}.${ext}",
         "afterSign": "scripts/notarize.js",
         "npmRebuild": false,
@@ -214,9 +219,9 @@
             "app-update.yml"
         ],
         "protocols": {
-            "name": "Solar URI scheme",
+            "name": "Ark URI scheme",
             "schemes": [
-                "sxp"
+                "ark"
             ],
             "role": "Viewer"
         },
@@ -251,7 +256,7 @@
                 "snap"
             ],
             "desktop": {
-                "MimeType": "x-scheme-handler/sxp;"
+                "MimeType": "x-scheme-handler/ark;"
             }
         },
         "deb": {

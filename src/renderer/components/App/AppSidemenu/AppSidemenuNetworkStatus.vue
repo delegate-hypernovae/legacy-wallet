@@ -37,7 +37,7 @@
             {{ $t('PEER.DISCONNECT') }}
           </span>
         </div>
-        <div class="bg-theme-settings-sub inline-block mx-6 rounded text-black relative px-3 py-2 inline-block select-none cursor-pointer bg-orange-network">
+        <div class="bg-theme-settings-sub inline-block mx-6 rounded text-white relative px-3 py-2 inline-block select-none cursor-pointer">
           <button
             class="w-full text-left pr-12"
             @click.stop="toggleSelect('peers-menu')"
@@ -52,7 +52,7 @@
                 :value="currentPeerId"
                 :placeholder="peer ? `${peer.isHttps ? 'https://' : 'http://'}${peer.ip}` : $t('PEER.NONE')"
                 :pin-above="true"
-                class="inline-block text-black fill-white w-full"
+                class="inline-block text-white fill-white w-full"
                 @select="setPeer"
               />
             </div>
@@ -60,9 +60,9 @@
           <ButtonReload
             v-if="!peer.isCustom"
             :is-refreshing="isRefreshing"
-            text-class="hover:text-black"
+            text-class="hover:text-white"
             color-class="AppSidemenuNetworkStatus__ButtonReload-colorClass"
-            class="AppSidemenuNetworkStatus__refresh__button hover:text-black bg-theme-settings-button absolute text-grey-dark"
+            class="AppSidemenuNetworkStatus__refresh__button hover:text-white bg-theme-settings-button absolute text-grey-dark"
             @click="refreshPeer"
           />
           <button
@@ -86,7 +86,7 @@
             <div class="text-xs mb-2">
               {{ $t('PEER.HEIGHT') }}
             </div>
-            <div class="text-md text-black">
+            <div class="text-md text-white">
               {{ peer ? peer.height : '-' }}
             </div>
           </div>
@@ -94,7 +94,7 @@
             <div class="text-xs mb-2">
               {{ $t('PEER.LAST_CHECKED') }}
             </div>
-            <div class="text-md text-black">
+            <div class="text-md text-white">
               {{ formatter_date(peer.lastUpdated || lastUpdated, 'LT') }}
             </div>
           </div>
@@ -115,7 +115,7 @@
               />
             </div>
             <div v-else>
-              <span class="text-black">
+              <span class="text-white">
                 -
               </span>
             </div>
@@ -129,7 +129,7 @@
           :label="$t('PEER.CONNECT_CUSTOM')"
           icon="connect"
           view-box="0 0 30 15"
-          class="AppSidemenuNetworkStatus__ButtonModal cursor-pointer w-full text-left py-4 text-grey-dark hover:text-black border-b border-theme-settings-sub"
+          class="AppSidemenuNetworkStatus__ButtonModal cursor-pointer w-full text-left py-4 text-grey-dark hover:text-white border-b border-theme-settings-sub"
           @toggle="toggleCustomPeerModal"
         >
           <template slot-scope="{ toggle, isOpen }">
@@ -147,7 +147,7 @@
         <RouterLink
           :to="{ name: 'networks' }"
           :class="isHorizontal ? 'flex-row w-22' : 'rounded-t-lg'"
-          class="flex items-center cursor-pointer w-full py-4 text-left text-grey-dark hover:no-underline hover:text-black"
+          class="flex items-center cursor-pointer w-full py-4 text-left text-grey-dark hover:no-underline hover:text-white"
           @click.native="goToNetworkOverview()"
         >
           <SvgIcon
@@ -362,7 +362,7 @@ export default {
 }
 
 .AppSidemenuNetworkStatus__peer .MenuDropdownHandler.text-theme-page-text-light {
-  @apply .text-black;
+  @apply .text-white;
 }
 
 .AppSidemenuNetworkStatus__peer .MenuDropdownHandler span svg {

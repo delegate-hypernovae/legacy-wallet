@@ -257,7 +257,7 @@ export default {
       tokenDecimals: 8
     },
     // slp master
-    slpWallet: 'DCJGEVjt2aF2zF3QWsALUYUEqnJ686FpQ6',
+    slpWallet: 'ARKQXzHvEWXgfCgAcJWJQKUMus5uE6Yckr',
     tokens: [],
     isSendAllActive: false,
     showEncryptLoader: false,
@@ -293,12 +293,12 @@ export default {
     },
     slp1tokenIDs() {
       return this.tokens.reduce((all, token) => {
-        all[token.tokenId] =
+        all[token.tokenIdHex] =
           token.symbol +
           ' - ' +
           (token.balance) +
           ' : ' +
-          token.tokenId
+          token.tokenIdHex
         return all
       }, {})
     },
@@ -432,9 +432,9 @@ export default {
     slpjson() {
       let jsontemplate
       if (this.ifSlpTypeGenesis) {
-        this.form.amount = 5
+        this.form.amount = 1
         jsontemplate = {
-          sslp1: {
+          aslp1: {
             tp: this.slp.type,
             na: this.slp.tokenName,
             sy: this.slp.tokenSymbol,
@@ -450,7 +450,7 @@ export default {
           return
         }
         jsontemplate = {
-          sslp1: {
+          aslp1: {
             tp: this.slp.type,
             id: this.slp.tokenID,
             qt: this.slp.tokenAmount,

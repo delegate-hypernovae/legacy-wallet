@@ -13,7 +13,7 @@
         <div
           v-if="data.column.field === 'name'"
         >
-          {{ data.row.tokenName }}
+          {{ data.row.name }}
         </div>
 
         <div
@@ -120,14 +120,13 @@ export default {
         },
         {
           label: this.$t('SLP.TOKENSTAB.TABLETOKENID'),
-          field: 'id',
-          formatFn: this.formatTokenId
+          field: 'tokenIdHex',
+          formatFn: this.formatTokenIdHex
         },
         {
           label: this.$t('SLP.TOKENSTAB.TABLEBALANCE'),
           type: 'number',
-          field: 'balance',
-          formatFn: this.formatBalance,
+          field: 'tokenBalance',
           tdClass: 'text-right',
           thClass: 'text-right'
         }

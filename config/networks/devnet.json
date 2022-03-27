@@ -1,63 +1,64 @@
 {
-    "id": "sxp.devnet",
-    "name": "Devnet",
-    "title": "Development Network",
-    "server": "https://sxp.testnet.sh",
-    "description": "The SXP Devnet is only used for R&D by engineers.",
-    "imagePath": "networks/sxp.devnet.png",
-    "apiVersion": 2,
-    "slip44": "1",
-    "market": {
-        "enabled": false,
-        "ticker": null
+  "id": "ark.devnet",
+  "name": "ARK Devnet",
+  "title": "ARK Devnet",
+  "server": "https://dwallets.ark.io",
+  "description": "The ARK Devnet is only used for R&D by engineers.",
+  "imagePath": "networks/ark.devnet.svg",
+  "apiVersion": 2,
+  "slip44": "1",
+  "market": {
+    "enabled": false,
+    "ticker": null
+  },
+  "feeStatistics": [
+    {
+      "type": 0,
+      "fees": {
+        "avgFee": 10000000,
+        "maxFee": 10000000,
+        "minFee": 10000000
+      }
     },
-    "feeStatistics": [{
-            "type": 0,
-            "fees": {
-                "avgFee": 10000000,
-                "maxFee": 10000000,
-                "minFee": 10000000
-            }
-        },
-        {
-            "type": 1,
-            "fees": {
-                "avgFee": 500000000,
-                "maxFee": 500000000,
-                "minFee": 500000000
-            }
-        },
-        {
-            "type": 2,
-            "fees": {
-                "avgFee": 2500000000,
-                "maxFee": 2500000000,
-                "minFee": 2500000000
-            }
-        },
-        {
-            "type": 3,
-            "fees": {
-                "avgFee": 100000000,
-                "maxFee": 100000000,
-                "minFee": 100000000
-            }
-        }
-    ],
-    "constants": {
-        "activeDelegates": 53,
-        "epoch": "2021-12-23T00:00:00.000Z"
+    {
+      "type": 1,
+      "fees": {
+        "avgFee": 500000000,
+        "maxFee": 500000000,
+        "minFee": 500000000
+      }
     },
-    "vendorField": {
-        "maxLength": 255
+    {
+      "type": 2,
+      "fees": {
+        "avgFee": 2500000000,
+        "maxFee": 2500000000,
+        "minFee": 2500000000
+      }
     },
-    "nethash": "cb6e16d4da31abd38ffeaf308e2f869a22e4da54f4b4ad1238b21ca7643797b2",
-    "explorer": "https://explorer.solar.network/devnet",
-    "knownWalletsUrl": "https://raw.githubusercontent.com/solar-network/common/master/devnet/known-wallets.json",
-    "token": "dSXP",
-    "subunit": "solartoshi",
-    "symbol": "dSXP",
-    "fractionDigits": 8,
-    "version": 30,
-    "wif": 252
+    {
+      "type": 3,
+      "fees": {
+        "avgFee": 100000000,
+        "maxFee": 100000000,
+        "minFee": 100000000
+      }
+    }
+  ],
+  "constants": {
+    "activeDelegates": 51,
+    "epoch": "2017-03-21T13:00:00.000Z"
+  },
+  "vendorField": {
+    "maxLength": 255
+  },
+  "nethash": "2a44f340d76ffc3df204c5f38cd355b7496c9065a1ade2ef92071436bd72e867",
+  "explorer": "https://dexplorer.ark.io",
+  "knownWalletsUrl": "https://raw.githubusercontent.com/ArkEcosystem/common/master/devnet/known-wallets.json",
+  "token": "DARK",
+  "subunit": "darktoshi",
+  "symbol": "DѦ",
+  "fractionDigits": 8,
+  "version": 30,
+  "wif": 170
 }

@@ -13,7 +13,11 @@
 
     <button
       v-tooltip="{
-        content: isVoting ? $t('PAGES.WALLET_SHOW.VOTING_FOR', { delegate: walletVote.username }) : $t('PAGES.WALLET_SHOW.NO_VOTE'),
+        content: isVoting
+          ? $t('PAGES.WALLET_SHOW.VOTING_FOR', {
+            delegate: walletVote.username
+          })
+          : $t('PAGES.WALLET_SHOW.NO_VOTE'),
         trigger: 'hover'
       }"
       :class="isVoting ? 'bg-theme-button-special-choice' : 'bg-transparent'"
@@ -132,7 +136,9 @@ export default {
     },
 
     doesNotExist () {
-      return !this.$store.getters['wallet/byAddress'](this.currentWallet.address)
+      return !this.$store.getters['wallet/byAddress'](
+        this.currentWallet.address
+      )
     },
 
     isVoting () {
